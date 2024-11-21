@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/posicao_provider.dart';
 
-class PositionTable extends StatelessWidget {
-  const PositionTable({super.key});
+class PosicaoTabela extends StatelessWidget {
+  const PosicaoTabela({super.key});
 
   @override
   Widget build(BuildContext context) {

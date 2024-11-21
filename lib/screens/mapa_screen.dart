@@ -30,7 +30,7 @@ class MapScreen extends StatelessWidget {
       body: Column(
         children: [
           InputForm(),
-          const PositionTable(),
+          const PosicaoTabela(),
           Expanded(
             child: FlutterMap(
               options: MapOptions(
