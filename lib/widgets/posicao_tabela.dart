@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/position_provider.dart';
+import '../providers/posicao_provider.dart';
 
 class PositionTable extends StatelessWidget {
+  const PositionTable({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final positionProvider = Provider.of<PositionProvider>(context);
+    final posicaoProvider = Provider.of<PosicaoProvider>(context);
 
-    return positionProvider.positions.isNotEmpty
+    return posicaoProvider.posicoes.isNotEmpty
         ? SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: DataTable(
-        columns: [
+        columns: const [
           DataColumn(label: Text('')),
           DataColumn(label: Text('Operadora')),
           DataColumn(label: Text('Prefixo')),
@@ -19,17 +21,17 @@ class PositionTable extends StatelessWidget {
           DataColumn(label: Text('Data Local')),
           DataColumn(label: Text('Localização')),
         ],
-        rows: positionProvider.positions.map((pos) {
+        rows: posicaoProvider.posicoes.map((pos) {
           return DataRow(
-            selected: positionProvider.selectedPositions.contains(pos),
+            selected: posicaoProvider.selecionarPosicoes.contains(pos),
             onSelectChanged: (bool? selected) {
-              positionProvider.selectPosition(pos);
+              posicaoProvider.posicaoSelecionada(pos);
             },
             cells: [
               DataCell(Checkbox(
-                value: positionProvider.selectedPositions.contains(pos),
+                value: posicaoProvider.selecionarPosicoes.contains(pos),
                 onChanged: (bool? value) {
-                  positionProvider.selectPosition(pos);
+                  posicaoProvider.posicaoSelecionada(pos);
                 },
               )),
               DataCell(Text(pos.nmOperadora)),

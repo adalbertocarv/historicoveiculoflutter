@@ -1,13 +1,12 @@
-class Position {
+class Posicao {
   final double latitude;
   final double longitude;
   final String datalocal;
   final String nmOperadora;
   final String prefixo;
   final String cdLinha;
-  final String? routeData; // Novo campo para armazenar a rota (opcional)
-
-  Position({
+  final String? routeData;
+  Posicao({
     required this.latitude,
     required this.longitude,
     required this.datalocal,
@@ -17,15 +16,15 @@ class Position {
     this.routeData, // Inicialize como opcional
   });
 
-  factory Position.fromJson(Map<String, dynamic> json) {
-    return Position(
+  factory Posicao.fromJson(Map<String, dynamic> json) {
+    return Posicao(
       latitude: json['latitude'],
       longitude: json['longitude'],
       datalocal: json['datalocal'],
       nmOperadora: json['nm_operadora'],
       prefixo: json['prefixo'],
       cdLinha: json['cd_linha'],
-      routeData: json['routeData'], // Mapear para a rota, se presente na API
+      routeData: json['routeData'],
     );
   }
 }
